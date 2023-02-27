@@ -1,5 +1,6 @@
 package com.vytrack.pages;
 
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,24 @@ public class Vytrack_login_page {
 
     @FindBy(name = "_submit")
     public WebElement btn_login;
+
+    public void login_salesManager(){
+        input_username.sendKeys(ConfigurationReader.getProperty("salesmanager_username"));
+        input_password.sendKeys(ConfigurationReader.getProperty("salesmanager_password"));
+        btn_login.click();
+    }
+
+    public void login_driver(){
+        input_username.sendKeys(ConfigurationReader.getProperty("driver_username"));
+        input_password.sendKeys(ConfigurationReader.getProperty("driver_password"));
+        btn_login.click();
+    }
+
+    public void login_storeManager(){
+       input_username.sendKeys(ConfigurationReader.getProperty("storemanager_username"));
+       input_password.sendKeys(ConfigurationReader.getProperty("storemanager_password"));
+       btn_login.click();
+    }
 
 
 }

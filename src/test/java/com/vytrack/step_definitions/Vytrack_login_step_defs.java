@@ -26,22 +26,15 @@ public class Vytrack_login_step_defs {
         }
 
         if (position.equals("driver")){
-            page.input_username.sendKeys(ConfigurationReader.getProperty("driver_username"));
-            page.input_password.sendKeys(ConfigurationReader.getProperty("driver_password"));
-            page.btn_login.click();
+           page.login_driver();
         }
 
         if (position.equals("salesmanager")){
-            BrowserUtils.sleep(2);
-            page.input_username.sendKeys(ConfigurationReader.getProperty("salesmanager_username"));
-            page.input_password.sendKeys(ConfigurationReader.getProperty("salesmanager_password"));
-            page.btn_login.click();
+           page.login_salesManager();
         }
 
         if (position.equals("storemanager")){
-            page.input_username.sendKeys(ConfigurationReader.getProperty("storemanager_username"));
-            page.input_password.sendKeys(ConfigurationReader.getProperty("storemanager_password"));
-            page.btn_login.click();
+           page.login_storeManager();
         }
 
     }
