@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class CampaignSC_Page {
     public CampaignSC_Page() {
 
@@ -38,7 +40,7 @@ public class CampaignSC_Page {
     @FindBy(xpath = "(//input[@placeholder='Choose a date'])[1]")
     public WebElement inp_startDate;
 
-    public WebElement selectDate(String num){
+    public WebElement selectDate(int num){
         String date = "//table//tbody//tr//td[.='" + num + "']";
 
         return Driver.getDriver().findElement(By.xpath(date));
@@ -50,7 +52,7 @@ public class CampaignSC_Page {
     @FindBy(xpath = "(//input[@placeholder='Choose a date'])[2]")
     public WebElement inp_endDate;
 
-    @FindBy(xpath = "//body[contains(@id,'oro_campaign_form_description')]")
+    @FindBy(xpath = "//body[@class='mce-content-body ']")
     public WebElement inp_description;
 
     @FindBy(xpath = "//input[contains(@id,'oro_campaign_form_budget')]")
@@ -59,8 +61,32 @@ public class CampaignSC_Page {
     @FindBy(xpath = "//select[contains(@id,'oro_campaign_form_reportPeriod')]")
     public WebElement select_report;
 
-    @FindBy(xpath = "//button[@class='btn btn-success main-group action-button']")
+    @FindBy(xpath = "//button[@class='btn btn-success action-button']")
     public WebElement btn_save;
+
+    @FindBy(xpath = "//div[@id='flash-messages']")
+    public WebElement msg_save;
+
+    @FindBy(xpath = "(//span[.='This value should not be blank.'])[1]")
+    public WebElement msg_err_name;
+
+    @FindBy(xpath = "(//span[.='This value should not be blank.'])[4]")
+    public WebElement msg_err_code;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

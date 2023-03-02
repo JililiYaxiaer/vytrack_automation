@@ -1,4 +1,4 @@
-@campaignStoreSC
+@regression
 Feature: Create new campaign feature for Store Manager
 
   Background: For all scenario user should be in campaign page
@@ -18,6 +18,7 @@ Feature: Create new campaign feature for Store Manager
     And user enters budget "<budget>"
     And user choose report scale "<report scale>"
     And user clicks save button
+    Then user can see successfull message
 
     Examples:
       | Owner    | name      | code | start day | start month | start year | end day | end month | end year | description       | budget | report scale |
@@ -25,6 +26,14 @@ Feature: Create new campaign feature for Store Manager
       | John Doe | Christmas | test | 01        | Feb         | 2022       | 24      | Feb       | 2024     | New year campaign | 1000   | Daily        |
 
 
+
+    @campaignError
+    Scenario: Store manager can not create campaign without name and code
+      When user click Create Campaign button
+      When user clicks save button
+      Then user should see error message
+
+      
 
 
 

@@ -4,6 +4,7 @@ import com.vytrack.pages.CampaignSC_Page;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
@@ -72,7 +73,7 @@ public class CampaignSC_StepDefinitions {
 
        years.selectByVisibleText(year+"");
 
-       campaignSCPage.selectDate(day).click();
+       campaignSCPage.selectDate(Integer.parseInt(day)).click();
 
 
     }
@@ -90,7 +91,7 @@ public class CampaignSC_StepDefinitions {
 
         years.selectByVisibleText(year);
 
-        campaignSCPage.selectDate(day).click();
+        campaignSCPage.selectDate(Integer.parseInt(day)).click();
 
 
     }
@@ -98,7 +99,7 @@ public class CampaignSC_StepDefinitions {
     @When("user enters description {string}")
     public void user_enters_description(String description) {
 
-       Driver.getDriver().switchTo().frame("tinymce");
+       Driver.getDriver().switchTo().frame(0);
        campaignSCPage.inp_description.sendKeys(description);
        BrowserUtils.sleep(2);
        Driver.getDriver().switchTo().parentFrame();
@@ -114,9 +115,21 @@ public class CampaignSC_StepDefinitions {
     }
     @When("user clicks save button")
     public void user_clicks_save_button() {
+        BrowserUtils.sleep(2);
         campaignSCPage.btn_save.click();
     }
 
 
+    @Then("user can see successfull message")
+    public void userCanSeeSuccessfullMessage() {
+        Assert.assertTrue( campaignSCPage.msg_save.isDisplayed());
 
+    }
+
+
+    @Then("user should see error message")
+    public void userShouldSeeErrorMessage() {
+        Assert.assertTrue(campaignSCPage.msg_err_name.isDisplayed());
+        Assert.assertTrue(campaignSCPage.msg_err_code.isDisplayed());
+    }
 }
