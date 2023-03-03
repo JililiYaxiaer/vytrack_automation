@@ -1,16 +1,17 @@
 package com.vytrack.step_definitions;
 
-import com.vytrack.pages.VytrackPage;
+import com.vytrack.pages.NewContactAT_Page;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.Map;
+
 public class NewContactSD {
-    VytrackPage vtPage = new VytrackPage();
+    NewContactAT_Page vtPage = new NewContactAT_Page();
 
     @Given("User go to login page and put valid credentials")
     public void userGoToLoginPageAndPutValidCredentials() {
@@ -33,16 +34,37 @@ public class NewContactSD {
         Assert.assertEquals(title, Driver.getDriver().getTitle());
     }
 
-    @And("User enters {string}:{string}")
-    public void userEnters(String credentials, String inputs) {
-        vtPage.validCredentials(credentials,inputs);
-
+    @Then("User enters all credentials")
+    public void user_enters_all_credentials(Map<String,String>list) {
+        for (Map.Entry<String, String> each : list.entrySet()) {
+            if (each.getKey().equals("method") || each.getKey().equals("gender") || each.getKey().equals("source")) {
+                vtPage.dropdownChoice(each.getKey(), each.getValue());
+            } else if (each.getKey().equals("birthday")) {
+                vtPage.birthdayTable.click();
+                BrowserUtils.sleep(1);
+                String[] birthday = each.getValue().split("/");
+                int day = Integer.parseInt(birthday[0]);
+                int month = Integer.parseInt(birthday[1]);
+                int year = Integer.parseInt(birthday[2]);
+                vtPage.selectDate(10, 8, 1987);
+            } else {
+                vtPage.validCredentials(each.getKey(), each.getValue());
+                BrowserUtils.sleep(1);
+            }
+        }
+    }
+    @Then("User click {string} button")
+    public void userClickButton(String button) {
+    Assert.assertTrue(vtPage.saveAndCloseButton.getText().contains(button));
+    vtPage.saveAndCloseButton.click();
     }
 
 
     @Then("User should be able see confirmation message:{string}")
-    public void userShouldBeAbleSeeConfirmationMessage(String arg0) {
+    public void userShouldBeAbleSeeConfirmationMessage(String message) {
+
     }
+
 
 
 }
