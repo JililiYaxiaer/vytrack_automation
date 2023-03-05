@@ -15,16 +15,16 @@ public class Hooks {
         System.out.println("Setting up the project---------->");
     }
 
-    @After
-    public void teardownMethod(Scenario scenario) {
-        if (scenario.isFailed()) {
-            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/ong", scenario.getName());
-        }
-        System.out.println("---> @After: RUNNING AFTER EACH SCENARIO");
-        BrowserUtils.sleep(2);
-        Driver.closeDriver();
-    }
+//    @After
+//    public void teardownMethod(Scenario scenario) {
+//        if (scenario.isFailed()) {
+//            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(screenshot, "image/ong", scenario.getName());
+//        }
+//        System.out.println("---> @After: RUNNING AFTER EACH SCENARIO");
+//        BrowserUtils.sleep(2);
+//        Driver.closeDriver();
+//    }
 
 
 }
