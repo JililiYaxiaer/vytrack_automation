@@ -12,7 +12,7 @@ public class Hooks {
 
     @Before
     public static void setup() {
-        System.out.println("Setting up the project---------->");
+       // System.out.println("Setting up the project---------->");
     }
 
     @After
