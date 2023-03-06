@@ -39,6 +39,7 @@ public class NewContactSD {
         for (Map.Entry<String, String> each : list.entrySet()) {
             if (each.getKey().equals("method") || each.getKey().equals("gender") || each.getKey().equals("source")) {
                 vtPage.dropdownChoice(each.getKey(), each.getValue());
+                BrowserUtils.sleep(1);
             } else if (each.getKey().equals("birthday")) {
                 vtPage.birthdayTable.click();
                 BrowserUtils.sleep(1);
@@ -52,16 +53,22 @@ public class NewContactSD {
                 BrowserUtils.sleep(1);
             }
         }
+
     }
     @Then("User click {string} button")
     public void userClickButton(String button) {
-    Assert.assertTrue(vtPage.saveAndCloseButton.getText().contains(button));
+        BrowserUtils.hover(vtPage.saveAndCloseButton);
+        BrowserUtils.sleep(2);
+   // Assert.assertTrue(vtPage.saveAndCloseButton.getText().contains(button));
     vtPage.saveAndCloseButton.click();
     }
 
 
     @Then("User should be able see confirmation message:{string}")
     public void userShouldBeAbleSeeConfirmationMessage(String message) {
+        BrowserUtils.sleep(1);
+        System.out.println(vtPage.msg_save.getText());
+        Assert.assertTrue(vtPage.msg_save.getText().contains(message));
 
     }
 

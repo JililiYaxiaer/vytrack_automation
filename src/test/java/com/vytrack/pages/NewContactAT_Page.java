@@ -28,9 +28,10 @@ public class NewContactAT_Page {
     public WebElement birthdayTable;
     @FindBy(xpath = "//button[@class='btn btn-success action-button']")
     public WebElement saveAndCloseButton;
+    @FindBy(xpath = "//div[@id='flash-messages']")
+    public WebElement msg_save;
 
 
-    //button[@class='btn btn-success action-button']
 
 
     public void loginAsUser() {

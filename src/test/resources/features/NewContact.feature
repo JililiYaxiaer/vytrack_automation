@@ -1,12 +1,12 @@
 @wip
 Feature: Create new contact
 
-  Scenario: Driver should be able get a link "Create Contact" on main page
+  Scenario: As a user  get a link "Create Contact" on main page
     Given User go to login page and put valid credentials
     When User get link "Create Contact" on main page and click it
     Then Verify user sees "Create Contact - Contacts - Customers"  in the title
 
-  Scenario: Driver should be able create new contact with valid credentials
+  Scenario: As a user should be create new contact with valid credentials and save it.
     Given User go to login page and put valid credentials
     When User get link "Create Contact" on main page and click it
     Then User enters all credentials
