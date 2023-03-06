@@ -32,7 +32,7 @@ public class NewContactAT_Page {
     public WebElement msg_save;
 
 
-
+//button[contains(text(),'Save and Close')])[2]
 
     public void loginAsUser() {
         txt_userName.sendKeys(ConfigurationReader.getProperty("driver_username"));

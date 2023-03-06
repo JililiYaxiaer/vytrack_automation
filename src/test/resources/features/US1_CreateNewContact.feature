@@ -30,6 +30,6 @@ Feature: Create new contact
       | birthday   | 03/19/1987     |
       | gender     | Male           |
       | source     | Website        |
-    Then User click "Save and Close" button
+    Then User click Save and Close button
     Then User should be able see confirmation message:"Contact saved"
 

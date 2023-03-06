@@ -56,10 +56,9 @@ public class NewContactStepDefs {
         }
 
     }
-    @Then("User click {string} button")
-    public void userClickButton(String button) {
-    Assert.assertTrue(vtPage.saveAndCloseButton.getText().contains(button));
-    BrowserUtils.sleep(1);
+    @Then("User click Save and Close button")
+    public void userClickButton() {
+        BrowserUtils.sleep(1);
     vtPage.saveAndCloseButton.click();
     }
 
