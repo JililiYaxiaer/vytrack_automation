@@ -1,3 +1,4 @@
+@regression
 Feature: Create new contact
   User story:As a user, I want create new contact with valid credentials
   AC1: As a user get a link "Create Contact" on main page and click it. 
