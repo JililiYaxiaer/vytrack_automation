@@ -45,13 +45,6 @@
             <artifactId>reporting-plugin</artifactId>
             <version>7.3.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.sample</groupId>
-            <artifactId>sample</artifactI>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/screenRecorder/MonteScreenRecorder.jar</systemPath>
-        </dependency>
 
 
     </dependencies>
