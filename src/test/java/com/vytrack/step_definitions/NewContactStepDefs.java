@@ -1,5 +1,6 @@
 package com.vytrack.step_definitions;
 
+
 import com.vytrack.pages.NewContactAT_Page;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
@@ -22,7 +23,6 @@ public class NewContactStepDefs {
     @When("User get link {string} on main page and click it")
     public void userGetLinkOnMainPageAndClickIt(String link) {
         BrowserUtils.sleep(3);
-        System.out.println(vtPage.createContactLink.getText());
         Assert.assertEquals(link, vtPage.createContactLink.getText());
         vtPage.createContactLink.click();
     }
@@ -30,8 +30,9 @@ public class NewContactStepDefs {
 
     @Then("Verify user sees {string}  in the title")
     public void verifyUserSeesContainsInTheTitle(String title) {
-        BrowserUtils.sleep(3);
+        BrowserUtils.sleep(2);
         Assert.assertEquals(title, Driver.getDriver().getTitle());
+        BrowserUtils.sleep(2);
     }
 
     @Then("User enters all credentials")
@@ -57,9 +58,8 @@ public class NewContactStepDefs {
     }
     @Then("User click {string} button")
     public void userClickButton(String button) {
-        BrowserUtils.hover(vtPage.saveAndCloseButton);
-        BrowserUtils.sleep(2);
-   // Assert.assertTrue(vtPage.saveAndCloseButton.getText().contains(button));
+    Assert.assertTrue(vtPage.saveAndCloseButton.getText().contains(button));
+    BrowserUtils.sleep(1);
     vtPage.saveAndCloseButton.click();
     }
 
@@ -68,8 +68,7 @@ public class NewContactStepDefs {
     public void userShouldBeAbleSeeConfirmationMessage(String message) {
         BrowserUtils.sleep(1);
         Assert.assertTrue(vtPage.msg_save.isDisplayed());
-       // System.out.println(vtPage.msg_save.getText());
-        //Assert.assertTrue(vtPage.msg_save.getText().contains(message));
+        BrowserUtils.sleep(1);
 
     }
 
