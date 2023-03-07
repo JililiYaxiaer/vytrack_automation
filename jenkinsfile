@@ -1,6 +1,6 @@
 node {
     stage('Clone code') {
-        git 'https://github.com/JililiYaxiaer/vytrack_automation.git'
+        git 'https://github.com/Alisherb28/vytrack_automation.git'
     }
 
     stage('Run tests'){

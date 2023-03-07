@@ -70,9 +70,6 @@ public class NewContactStepDefs {
         BrowserUtils.sleep(1);
 
     }
-
-
-
 }
 
 
