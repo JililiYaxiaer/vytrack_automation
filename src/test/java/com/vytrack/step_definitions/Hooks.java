@@ -12,7 +12,7 @@ public class Hooks {
 
     @Before
     public static void setup() {
-        System.out.println("Setting up the project---------->");
+       // System.out.println("Setting up the project---------->");
     }
 
     @After
@@ -21,7 +21,6 @@ public class Hooks {
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/ong", scenario.getName());
         }
-        System.out.println("---> @After: RUNNING AFTER EACH SCENARIO");
         BrowserUtils.sleep(2);
         Driver.closeDriver();
     }
